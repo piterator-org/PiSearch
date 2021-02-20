@@ -1,0 +1,393 @@
+/* Note: 
+1.  单条规则中不同类型的样式应当按顺序排列，且用空行分隔，类型顺序如下
+	(postion, (trbl), display, visibility)
+	((flex), (grid))
+	(*width, *height)
+	(margin, padding, box-sizing)
+	(border, outline)
+	(color, background*, font*, text*, *shadow)
+	(transition, animation)
+	(*)
+2.	禁止使用 `!important` !important
+3.	禁止使用内联 style 属性
+4.	禁止使用空白元素完成 margin 能达到的效果。
+5.	类名在说人话的前提下尽量短。如 `reversal -> rev`。
+*/
+
+/* :: global styles |
+   全局样式，可理解为不包含类和 id 选择器的样式 */
+
+/* :::: tops | 顶部元素 */
+
+html, body {
+	height: 100%;
+}
+body {
+	position: relative;
+	display: none; /* Note: Hide the page. | 页面在加载前是隐藏的。 */
+	margin: 0;
+	padding: 0;
+}
+body > *:not(#main-holder) {
+	display: none !important;
+}
+* {
+	font-family: "Microsoft Yahei", "Inconsolata", "Courier";
+	font-weight: 400;
+	outline: none;
+	border: none;
+}
+
+/* :::: link | 链接 */
+
+a {
+	color: rgb(33, 133, 208);
+	text-decoration: underline;
+	cursor: pointer;
+}
+a:hover {
+	color: rgb(0, 93, 168) !important;
+}
+a:visited {
+	color: rgb(33, 133, 208);
+}
+
+/* :::: header | 标题 */
+
+h1 {
+	font-size: 2em;
+}
+
+/* :: browser behavior | 浏览器表现 */
+
+::selection {
+	background-color: #cce2ff;
+	color: rgba(0, 0, 0, .87);
+}
+::-webkit-scrollbar {
+	width: 6px;
+	height: 4px;
+	background-color: #d7dadd;
+}
+::-webkit-scrollbar-corner {
+	background-color: #d7dadd;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background-color: #c0c3c6;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #b0b3b6;
+}
+::-webkit-scrollbar-thumb:active {
+	background-color: #a0a3a6;
+}
+
+/* :: decorator styles |
+   用于修饰的样式，这部分内容要精简。假如有合适的语义化的标签，就绝对不要添一个类。 */
+
+/* :::: `font-weight` */
+
+.lightest {
+	font-weight: 100;
+}
+.lighter {
+	font-weight: 200;
+}
+.bolder {
+	font-weight: 700;
+}
+
+/* :::: `text-align` */
+
+.left {
+	text-align: left;
+}
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+
+/* :::: `*color` */
+
+.teal {
+	color: rgb(0, 181, 173);
+	border-color: rgb(0, 181, 173);
+}
+.rev.teal {
+	color: rgb(240, 240, 240);
+	border-color: rgb(0, 181, 173);
+	background-color: rgb(0, 181, 173);
+}
+.teal.rev.hov:hover {
+	background-color: rgb(10, 191, 183);
+	border-color: rgb(10, 191, 183);
+	color: rgb(240, 240, 240);
+}
+
+/* :::: `border*` */
+
+.round {
+	border-radius: 7px;
+}
+
+/* :: cell styles | 组件样式。
+      当组件 a 可以和修饰样式 b 或 c 结合使用的时候，直接使用 .a.b 与 .a.c，
+      而不是 .a-b, .a-c */
+
+button {
+	display: inline-flex;
+
+	height: 1.8em;
+	min-width: 5.2em;
+
+	padding-left: .6em;
+	padding-right: .6em;
+	margin-bottom: .4em;
+	box-sizing: border-box;
+	border-radius: .3em;
+	border: 2px solid;
+
+	justify-content: center;
+	align-items: center;
+
+	font-weight: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+mark { /* Ext: .teal.rev .round */
+	display: inline-block;
+
+	padding: 1px 5px;
+	margin: 1px 2px;
+
+	border: 1px solid rgb(0, 181, 173);
+	border-radius: 7px;
+
+	color: rgb(0, 181, 173);
+	background-color: white;
+	font-size: 1.2em;
+
+	white-space: nowrap;
+}
+mark:hover {	
+	background-color: rgb(240, 240, 240);
+}
+mark.act {
+	background-color: rgb(0, 181, 173);
+	color: rgb(240, 240, 240);
+}
+
+/* Rfct: <<< */
+
+a.teal:hover, button.teal:hover {
+	color: rgb(0, 141, 133) !important;
+}
+a.teal:visited {
+	color: rgb(0, 181, 173);
+}
+hr:not(.ui) {
+	display: block;
+	height: 1px;
+	width: 100%;
+	background-color: rgb(158, 158, 158);
+	box-sizing: border-box;
+}
+hr.vrt:not(.ui) {
+	display: inline-block;
+	height: auto !important;
+	width: 1px !important;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background-color: rgb(158, 158, 158);
+	box-sizing: border-box;
+}
+#search-box {
+	height: 42px;
+	width: 100%;
+	display: block;
+	margin-top: .6em;
+	border-radius: 12px;
+	border: 1.5px solid rgb(0, 181, 173);
+	color: rgb(0, 181, 173);
+	padding-left: 12px;
+	padding-right: 96px;
+	box-sizing: border-box;
+	font-weight: 400;
+	outline: none;
+	transition: ease-out padding-right .2s, ease-out border-radius .2s;
+	z-index: 1;
+}
+#search-btn {
+	height: 42px;
+	width: 88px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	border: 1.5px solid rgb(0, 181, 173);
+	box-sizing: border-box;
+	font-weight: 400;
+	border-radius: 0px 12px 12px 0px;
+	transition: ease-out background-color .1s, ease-out width .2s, ease-out border-radius .2s;
+	z-index: 2;
+}
+#search-btn > span {
+	font-weight: 100;
+	font-size: 1.5em;
+	position: relative;
+	top: -.06em;
+}
+#top-search-box {
+	position: fixed;
+	top: 0px;
+	height: 60px;
+	width: 100%;
+	background-color: #fff;
+}
+#main-large-search {
+	height: 180px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+#main-over-top {
+	height: 72px;
+	box-sizing: border-box;
+}
+#main-below-top {
+	height: 55px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+#main-holder {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	z-index: 1;
+	padding-top: 72px;
+}
+#main {
+	width: 40%;
+	margin: auto;
+	min-width: 600px;
+	background-color: #fff;
+}
+.button-selects.teal {
+	font-weight: 100;
+	font-size: 1em;
+	min-width: 3.6em;
+	padding-left: .3em;
+	padding-right: .3em;
+	padding-top: .2em;
+	padding-bottom: .2em;
+	margin-left: .2em;
+	margin-right: .2em;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	color: rgb(0, 181, 173);
+	background: rgba(255, 255, 255, .9);
+	border-radius: .3em;
+	height: 1.88em;
+	display: inline-block;
+	text-align: center;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: ease-out background-color .1s;
+}
+.button-selects.teal:hover {
+	color: rgb(0, 181, 173);
+	background: #f5f9fd;
+}
+.button-selects.teal:active {
+	color: #fff;
+	background: rgb(0, 171, 163);
+}
+.button-selects.teal.reversal {
+	color: #fff;
+	background: rgb(0, 181, 173);
+}
+#search-form {
+	position: relative;
+	top: 1px;
+
+	height: 42px;
+	width: 40%;
+	min-width: 600px;
+
+	margin: auto;
+
+	text-align: center;
+
+	transition: ease-out top .2s
+}
+#search-form:focus-within {
+	top: -2px;
+}
+#search-form:focus-within > #search-btn {
+	width: 108px;
+	border-radius: 0px 21px 21px 0px;
+}
+#search-btn:hover {
+	width: 108px;
+}
+#search-form:focus-within > #search-box {
+	padding-right: 116px;
+	border-radius: 21px;
+}
+#search-btn:hover+#search-box {
+	padding-right: 116px;
+}
+#search-btn:active {
+	background-color: rgb(0, 171, 163) !important;
+}
+#search-box::-moz-placeholder {
+	color: rgb(117, 117, 117);
+}
+
+/* Rfct: >>> */
+
+
+.bar {
+	font-weight: 400 !important;
+}
+#tab-common td:last-child {
+	text-align: center;
+}
+#tab-common a {
+	white-space: nowrap;
+	text-decoration: none;
+}
+#tab-about > p {
+	text-align: center;
+	line-height: 1.8em;
+}
+#tab-about img {
+	min-width: 80px;
+	width: 20%;
+}
+
+#clock-top::after, #clock-bottom::after {
+	content: attr(data-clock);
+}
+#clock-bottom {
+	position: fixed;
+	bottom: 10px;
+
+	width: 100%;
+	min-width: 560px;
+}
+
+#userid::before {
+	content: "UID: ";
+}
+
+#setting-engine > div > span {
+
+}
+

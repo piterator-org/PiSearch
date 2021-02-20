@@ -1,0 +1,11 @@
+(clear attr in html)
+	(:target _black)
+	(:inline style)
+	(:on*)
+	(!useless id)
+	(!useless class)
+(:js)
+	(:path_encode) -> encodeURI
+	(:get_url_jump) -> pi.search.target
+	(:...)
+	(!onload css) -> @media

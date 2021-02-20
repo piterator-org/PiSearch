@@ -1,0 +1,46 @@
+/* media
+    if(document.domain!="localhost"&&document.domain!=""&&document.domain!="pisearch.cn"&&document.domain!="pisearch.cc")window.location.href="https://pisearch.cn/";
+    var UserAgentT=navigator.userAgent;
+    if(UserAgentT.indexOf('Android')>-1||UserAgentT.indexOf('iPhone')>-1||UserAgentT.indexOf('iPad')>-1||UserAgentT.indexOf('iPod')>-1||UserAgentT.indexOf('Symbian')>-1){
+        $('body').css('overflow-y','hidden');
+        $('#main-holder').css('zoom','2.4');
+        $('#tab-common').css('line-height','1.5');
+        $('#tab-bookmarks').css('line-height','1.5');
+        $('#tab-friends').css('line-height','1.5');
+        $('#tab-tools').css('line-height','1.5');
+        $('.juicy.cards').css('display','block');
+        $('.juicy.cards .card').css('width','calc(100% - .5em)');
+        $('.juicy.cards .card').css('line-height','1.6');
+        $('.juicy.cards .card').css('margin-top','.85em');
+        $('.juicy.cards .card:first-of-type').css('margin-top','0px');
+        $('.juicy.cards .card').css('margin-bottom','.85em');
+        $('.juicy.cards .card:last-of-type').css('margin-bottom','0px');
+        $('.juicy.cards .card>.content.extra').css('height','1em');
+        $('.juicy.cards .card>.content.extra>.date.right').css('line-height','1.2');
+        $('.button-selects.teal').css('padding-top','.5em');
+        $('.button-selects.teal').css('padding-bottom','.5em');
+        $('#bottom-time').css('display','none');
+        $('#main-large-search').css('height','65px');
+        $('#main-over-top').css('height','20px');
+        $('.main-tabs').css('overflow-y','auto');
+        $('.main-tabs').css('position','fixed');
+        $('.main-tabs').css('top','160px');
+        $('.main-tabs').css('max-height','calc(100% - 205px)');
+        $('.main-tabs').css('left','5.7%');
+        $('.main-tabs').css('right','5.7%');
+        $('#search_form').css('min-width','360px');
+        $('#search_form').css('width','90%');
+        $('#main-large-links').css('min-width','360px');
+        $('#main-header').css('display','none');
+        $('#main-menu').css('overflow-x','auto');
+        $('#main-menu').removeClass('pointing');
+    }
+    if((String(navigator.platform).indexOf("Linux")>-1)){
+        $('.button-selects.teal').css('padding-top','.5em');
+        $('.button-selects.teal').css('padding-bottom','.2em');
+        if(navigator.userAgent.indexOf('Firefox')>=0){
+            $('.button-selects.teal').css('padding-top','.2em');
+            $('.button-selects.teal').css('padding-bottom','.4em');
+        }
+    }
+*/

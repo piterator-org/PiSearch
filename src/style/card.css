@@ -1,0 +1,82 @@
+.juicy.cards {
+	display: flex;
+}
+.juicy.cards .card, 
+.juicy.card {
+	display: block;
+	width: calc(100% / 3 - 1em);
+	background-color: #fff;
+	border-radius: .4em;
+	border: 1px solid rgb(217, 217, 217);
+	padding-top: .5em;
+	padding-bottom: .5em;
+	box-sizing: border-box;
+	text-align: left;
+}
+.juicy.cards a.card, 
+a.juicy.card, 
+.juicy.cards a.card .divider, 
+a.juicy.card .divider {
+	cursor: pointer;
+}
+.juicy.cards a.card:hover, 
+a.juicy.card:hover {
+	border-color: rgb(156, 199, 240);
+}
+.juicy.cards a.card:hover > .divider, 
+a.juicy.card:hover > .divider {
+	border-top: 1px solid rgb(156, 199, 240);
+}
+.juicy.cards .card {
+	height: min-content;
+	margin-left: .25em;
+	margin-right: .25em;
+}
+.juicy.cards .card > .header, 
+.juicy.card > .header {
+	display: block;
+	font-weight: 600;
+	font-size: 1.1em;
+	color: rgb(0, 0, 0);
+	margin-left: .8em;
+	margin-right: .8em;
+	font-weight: 400;
+}
+.juicy.cards .card > .meta, 
+.juicy.card > .meta {
+	display: block;
+	font-size: .85em;
+	color: rgb(153, 153, 153);
+	margin-left: .8em;
+	margin-right: .8em;
+}
+.juicy.cards .card > .content, 
+.juicy.card > .content {
+	display: block;
+	font-size: .9em;
+	color: rgb(0, 0, 0);
+	margin-top: .4em;
+	margin-bottom: .4em;
+	margin-left: .8em;
+	margin-right: .8em;
+}
+.juicy.cards .card > .divider, 
+.juicy.card > .divider {
+	display: block;
+	height: 0;
+	margin: .5em 0;
+	overflow: hidden;
+	border-top: 1px solid rgb(217, 217, 217);
+	cursor: default;
+}
+.juicy.cards .card > .content.extra, 
+.juicy.card > .content.extra {
+	color: rgb(0, 0, 0);
+	margin-top: .2em;
+	margin-bottom: .2em;
+}
+.juicy.cards .card > .content.extra > .date.right, 
+.juicy.card > .content.extra > .date.right {
+	float: right;
+}
+
